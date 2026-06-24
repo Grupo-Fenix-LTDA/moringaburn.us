@@ -1785,3 +1785,91 @@ h1, h2, h3, h4 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   BUYBOX SIZE OVERRIDE — match Burntide buybox dimensions
+   Keeps Moringa Burn visual identity (green, yellow button, cream)
+   Only scales the package cards (container + paddings + fonts +
+   image sizes) so they match the Burntide funnel buybox size.
+   ============================================================ */
+
+/* Constrain only the packages section container to match Burntide (1120px) */
+.packages-section > .container { max-width: 1120px; }
+
+/* Grid — match Burntide ratio + gap + top margin */
+.packages-grid {
+  grid-template-columns: 1fr 1.24fr 1fr;
+  gap: 22px;
+  margin-top: 40px;
+}
+
+/* Standard card */
+.pkg-head { padding: 11px 16px; }
+.pkg-head h4 { font-size: 16px; letter-spacing: 1.5px; }
+
+.pkg-body { padding: 22px 20px; gap: 14px; }
+
+.pkg-qty   { font-size: 36px; }
+.pkg-supply{ font-size: 14px; }
+
+.pkg-img-wrap  { min-height: 150px; }
+.pkg-img-wrap6 { min-height: 188px; }
+.pkg-img-wrap  img { max-height: 160px; }
+.pkg-img-wrap6 img { max-height: 200px; max-width: 110%; }
+
+.pkg-bonus-tag { font-size: 12px; padding: 4px 11px; }
+
+.pkg-price     { font-size: 66px; }
+.pkg-price-per { font-size: 14px; }
+
+.pkg-feats li     { font-size: 14.5px; gap: 9px; padding: 2px 0; }
+.pkg-feats li svg { width: 17px; height: 17px; min-width: 17px; }
+
+.pkg-save { font-size: 17px; padding: 9px; }
+
+.pkg-total .was  { font-size: 17px; }
+.pkg-total .now  { font-size: 26px; }
+.pkg-total .ship { font-size: 12.5px; }
+
+.pkg-btn { font-size: 20px; padding: 14px 16px; }
+
+.pkg-pay img { max-width: 180px; }
+
+/* Featured (middle / Best Value) card — bigger version */
+.pkg-card.featured { margin-top: -14px; margin-bottom: -14px; }
+
+.pkg-card.featured .pkg-head     { padding: 13px 16px; }
+.pkg-card.featured .pkg-head h4  { font-size: 17px; }
+.pkg-card.featured .pkg-body     { padding: 22px 22px; gap: 13px; }
+.pkg-card.featured .pkg-qty      { font-size: 40px; }
+.pkg-card.featured .pkg-supply   { font-size: 15px; }
+.pkg-card.featured .pkg-bonus-tag{ font-size: 13px; padding: 5px 13px; }
+.pkg-card.featured .pkg-price    { font-size: 74px; }
+.pkg-card.featured .pkg-price-per{ font-size: 15px; }
+.pkg-card.featured .pkg-feats li     { font-size: 15.5px; gap: 10px; }
+.pkg-card.featured .pkg-feats li svg { width: 18px; height: 18px; min-width: 18px; }
+.pkg-card.featured .pkg-save     { font-size: 18px; padding: 10px; }
+.pkg-card.featured .pkg-total .was { font-size: 19px; }
+.pkg-card.featured .pkg-total .now { font-size: 30px; }
+.pkg-card.featured .pkg-btn      { font-size: 22px; padding: 17px 16px; }
+.pkg-card.featured .pkg-pay img  { max-width: 200px; }
+
+/* Mid-range tablet adjustment (between 1000px stacking and full desktop) */
+@media (max-width: 1180px) and (min-width: 1001px) {
+  .packages-grid { grid-template-columns: 1fr 1.2fr 1fr; gap: 16px; }
+  .pkg-card.featured { margin-top: -12px; margin-bottom: -12px; }
+  .pkg-card.featured .pkg-body     { padding: 20px 16px; gap: 13px; }
+  .pkg-card.featured .pkg-img-wrap6 { min-height: 170px; }
+  .pkg-card.featured .pkg-img-wrap6 img { max-height: 175px; max-width: 106%; }
+  .pkg-card.featured .pkg-qty   { font-size: 36px; }
+  .pkg-card.featured .pkg-price { font-size: 62px; }
+  .pkg-card.featured .pkg-save  { font-size: 17px; }
+  .pkg-card.featured .pkg-total .now { font-size: 27px; }
+  .pkg-card.featured .pkg-btn   { font-size: 19px; padding: 14px 12px; }
+}
+
+/* On mobile (≤1000px) the original Moringa rule stacks to 1 column;
+   we just keep featured img from overflowing its tile. */
+@media (max-width: 1000px) {
+  .pkg-card.featured .pkg-img-wrap6 img { max-width: 100%; }
+}
